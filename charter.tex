@@ -5,7 +5,7 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Sistema modular para monitoreo y control industrial con comunicación inalámbrica y capacidades de automatización embebida} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -16,21 +16,21 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+\autor{Ing. Kirschner Lucas Sebastián}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
-\pertenenciaDirector{pertenencia} 
+\director{Mgtr. Ing. Fernández Guillermo Alfredo}
+\pertenenciaDirector{FIO - UNaM} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Representante de PyME industrial del sector manufacturero}
+\empresaCliente{Industria tipo con bajo nivel de automatización}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{29 de abril de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{17 de junio de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{27 de abril de 2026}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -59,7 +59,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & {12} de {mayo} de 2025 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 600 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,144 +106,111 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+El proyecto consiste en el desarrollo de un sistema modular para monitoreo y control industrial, con capacidades de automatización embebida y comunicación inalámbrica. Se trata de un emprendimiento personal, motivado por la necesidad detectada en industrias con baja adopción tecnológica y limitada conectividad cableada, que requieren soluciones ágiles, adaptables y robustas para mejorar sus procesos productivos.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+En el contexto actual, muchos sistemas de automatización industrial están diseñados para instalaciones específicas. Sus arquitecturas suelen ser rígidas y presentan escasa capacidad de adaptación a entornos cambiantes o geográficamente dispersos. Las soluciones tradicionales dependen en gran medida de infraestructura cableada, lo cual representa una limitación significativa en entornos donde el tendido de cables es costoso o impracticable. En contraste, este proyecto se enfoca en brindar una alternativa distribuida y escalable, basada en tecnologías modernas de microcontroladores, comunicación inalámbrica y diseño modular.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+La solución propuesta contempla una arquitectura distribuida compuesta por una estación central y múltiples estaciones remotas. La estación central se construirá en torno a un microcontrolador de altas prestaciones (por ejemplo, ARM Cortex-M7 o M33), con capacidad para ejecutar múltiples tareas con restricciones temporales mediante un sistema operativo en tiempo real (\textit{Real-Time Operating System}, RTOS). Integrará una interfaz Ethernet para conexión con sistemas de supervisión y control, tales como plataformas \textit{Supervisory Control and Data Acquisition} (SCADA), y una interfaz inalámbrica de alta confiabilidad para comunicarse con las estaciones remotas. También contará con un reloj en tiempo real (\textit{Real-Time Clock}, RTC) para mantener el registro horario, y se evaluará el uso de \textit{Power over Ethernet} (PoE) como alternativa de alimentación.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Las estaciones remotas estarán equipadas con microcontroladores de menores recursos (como ARM Cortex-M3 o M4), orientados a la adquisición de señales y a la activación de actuadores en campo. Contarán con entradas y salidas digitales industriales, adecuadas para la conexión de sensores discretos y dispositivos como relés o contactores, así como una interfaz de comunicación industrial, como por ejemplo RS485, que permita la integración con diversos equipos del entorno. La comunicación con la estación central se realizará mediante un enlace inalámbrico confiable. Estas estaciones estarán diseñadas para operar en entornos exigentes, alimentadas desde la red eléctrica de 220 V, con la posibilidad de integrar baterías de respaldo para asegurar continuidad operativa.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+Desde el punto de vista del software, se implementará una arquitectura por capas que permita separar claramente las funciones de bajo nivel (controladores, comunicación, gestión de entradas/salidas) de la lógica de aplicación. Se proveerá una interfaz de programación de aplicaciones (\textit{Application Programming Interface}, API) que facilite el desarrollo de soluciones específicas sobre la plataforma base. Este enfoque modular permitirá escalar el sistema según las necesidades, incorporar nuevas estaciones o funcionalidades sin rediseñar el conjunto, y facilitar su mantenimiento y extensión futura.
 
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+La propuesta se destaca por su flexibilidad, escalabilidad y adaptabilidad. Frente a las soluciones actuales, que suelen ser cerradas y costosas, este proyecto plantea un sistema abierto y personalizable, orientado a pequeñas y medianas industrias que requieren soluciones específicas sin incurrir en altos costos de integración.
+
+\newpage
+La figura \ref{fig:diagBloques} presenta el diagrama en bloques del sistema propuesto, el cual resume visualmente la arquitectura distribuida planteada. Se distinguen claramente la estación central, con su microcontrolador de altas prestaciones, las interfaces de comunicación (Ethernet e inalámbrica) y las opciones de alimentación (PoE o red eléctrica), y las estaciones remotas, dotadas de entradas y salidas digitales industriales, interfaz inalámbrica y comunicación serie robusta para dispositivos de campo.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.9\textwidth]{./Figuras/diagBloques.pdf}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
-\vspace{25px}
-
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
+A continuación, se identifican los principales interesados del proyecto, detallando sus roles, vínculos con el desarrollo y nivel de participación esperado.
 
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
-
-
-\begin{table}[ht]
+\begin{table}[H]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
-\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\begin{tabularx}{\linewidth}{@{}|l|X|X|X|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+%Auspiciante   &                   &              	&        	\\ \hline
+Cliente       & -      &\empclientename	& \clientename        	\\ \hline
+%Impulsor      & Kirschner Lucas Sebastián & -      	& Emprendedor y promotor de la iniciativa \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+%Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+%Equipo        & miembro1 \newline 
+%				miembro2          &              	&        	\\ \hline
+Opositores    & -                 & Fabricantes e integradores tradicionales de PLC & Actores con intereses en soluciones cableadas tradicionales \\ \hline
+Usuario final & - 				  & Industria genérica & Operadores y encargados de mantenimiento \\ \hline
 \end{tabularx}
 \end{table}
-
-El Director suele ser uno de los orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
  
-Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item Cliente: Representado por industrias con baja incorporación tecnológica y limitada infraestructura de conectividad. Este tipo de organización busca soluciones que le permitan modernizar sus procesos productivos sin necesidad de realizar grandes inversiones en cableado o infraestructura física. Valora la simplicidad en la implementación, la escalabilidad y la robustez de los sistemas.
+	
+	%\item Impulsor: Lucas Sebastián Kirschner, autor del proyecto y profesional del área, identifica la necesidad del sector y promueve una solución técnica innovadora basada en su experiencia en sistemas embebidos. En este rol, impulsa el desarrollo, búsqueda de valor y validación de la propuesta, combinando visión técnica y estratégica.
+	
+	\item Responsable: El autor del proyecto, Ing. Lucas Sebastián Kirschner, asume la responsabilidad sobre el mismo. Tiene a su cargo el diseño, implementación, validación y documentación del sistema, así como la planificación y ejecución del trabajo dentro de los plazos establecidos.
+	
+	\item Orientador: El Mgtr. Ing. Guillermo Alfredo Fernández es profesor titular e investigador de la Facultad de Ingeniería de la Universidad Nacional de Misiones (FIO - UNaM), con una reconocida trayectoria en sistemas embebidos aplicados a energías renovables y automatización. Su rol es fundamental para validar las decisiones técnicas, guiar metodológicamente el desarrollo y asegurar el rigor académico del trabajo final.
+	
+	\item Opositores: Fabricantes de PLC convencionales e integradores de soluciones cableadas que podrían ver afectada su posición en el mercado ante la aparición de propuestas modulares, económicas y de implementación más ágil como la que plantea este proyecto. Esta oposición potencial se da principalmente en entornos donde la adopción de nuevas tecnologías no forma parte del modelo de negocio tradicional.
+	
+	\item Usuario final: Personal técnico de planta, incluyendo operarios, encargados de mantenimiento y supervisores de proceso. Interactuarán con el sistema para monitorear variables de proceso y controlar dispositivos industriales. Se prioriza la facilidad de uso, confiabilidad operativa y adaptación a diferentes entornos industriales.
 \end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-
+\newpage
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
+Desarrollar una solución modular y escalable que permita monitorear y controlar procesos industriales en entornos con baja infraestructura de conectividad, mediante una arquitectura distribuida que combine estaciones centrales y remotas interconectadas por enlaces inalámbricos confiables. La iniciativa surge como respuesta a la necesidad de automatización en industrias que presentan limitaciones técnicas, económicas o geográficas para implementar sistemas cableados convencionales, y busca facilitar la recolección de datos de campo, la activación de actuadores y la implementación de lógica de control adaptada a cada caso. %Mediante el diseño de hardware robusto y firmware con capas de abstracción bien definidas, se espera reducir barreras técnicas para el desarrollo de aplicaciones específicas, optimizar el mantenimiento de equipos, mejorar la eficiencia operativa y ofrecer una herramienta flexible que se adapte a distintas escalas de implementación industrial.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
-
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
-		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
-		\end{itemize}
-	\item ...
-	
+	\item El diseño y construcción de un prototipo funcional de la estación central, basada en un microcontrolador de altas prestaciones con capacidad para ejecutar un sistema operativo de tiempo real (RTOS).
+	\item El diseño y fabricación de al menos dos prototipos funcionales de estaciones remotas, con interfaces para la conexión de sensores y actuadores industriales.
+	\item El diseño e implementación de la arquitectura de alimentación, contemplando el uso de PoE como opción de suministro para la estación central y la incorporación de baterías de respaldo en las estaciones remotas.
+	\item El desarrollo del firmware de bajo nivel para la inicialización de periféricos, gestión de comunicaciones y manejo de entradas/salidas en ambas estaciones.
+	\item La implementación de una API modular que abstraiga la complejidad del hardware y facilite la adaptación del sistema a distintos procesos industriales.
+	\item La validación funcional de los módulos mediante pruebas controladas que simulen condiciones reales del entorno industrial.
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
+El presente proyecto no incluye:
+\begin{itemize}
+	\item El desarrollo de una interfaz gráfica de supervisión (HMI/SCADA).
+	\item La integración con sistemas productivos reales de empresas externas.
+	\item La incorporación de inteligencia artificial embebida, aunque se considera su viabilidad para futuras etapas.
+	\item El diseño de encapsulados o gabinetes industriales, más allá de criterios básicos de disposición y conexión.
+	\item La certificación del producto para entornos industriales normados.
+	\item La obtención de un sistema final manufacturable, dado que el proyecto se limita a la construcción y validación de prototipos funcionales.
+\end{itemize}
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item Se dispondrá de tiempo suficiente por parte del responsable para cumplir con las actividades planificadas.
+	\item Se podrán adquirir los componentes electrónicos necesarios en el mercado local o internacional, sin demoras significativas ni incrementos abruptos de costos.
+	\item No se presentarán restricciones legales, regulatorias o normativas que impidan la realización del proyecto o el uso de tecnologías previstas.
+	\item No habrá una devaluación abrupta que comprometa la adquisición de insumos clave o el cumplimiento del presupuesto estimado.
+	\item La tecnología inalámbrica seleccionada será factible de implementar con los recursos disponibles y adecuada para el tipo de comunicación requerida entre estaciones.
+	\item El entorno de prueba seleccionado permitirá validar adecuadamente el funcionamiento del sistema en condiciones representativas.
+	\item Se contará con acceso a herramientas y bibliografía técnica suficiente para el diseño, implementación y validación del sistema.
+	\item El desarrollo del firmware y la arquitectura modular prevista podrán implementarse con herramientas de software disponibles sin incurrir en costos adicionales significativos.
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
