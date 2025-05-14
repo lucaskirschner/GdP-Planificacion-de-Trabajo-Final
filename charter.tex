@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 600 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 680 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -215,110 +215,175 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
-
 \begin{enumerate}
-	\item Requerimientos funcionales:
+	\item Requerimientos de hardware:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El sistema deberá contar con una estación central basada en un microcontrolador ARM Cortex-M7 (o superior), con al menos 512 KB de RAM y 2 MB de Flash.
+			\item Las estaciones remotas deberán emplear microcontroladores ARM Cortex-M3/M4 o similar, con al menos 64 KB de RAM y 256 KB de Flash.
+			\item La interfaz RS485 deberá cumplir con la norma TIA/EIA-485-A, soportando velocidades de hasta 115200 baudios en distancias de hasta 100 m.
+			\item Cada estación remota deberá contar con entradas digitales compatibles con sensores industriales de 24 V con colector abierto.
+			\item Las salidas digitales deberán soportar cargas de al menos 30 V y 500 mA, con aislamiento galvánico mediante optoacopladores o relés.
+			\item Las estaciones deberán alimentarse desde la red eléctrica de 220 V/50 Hz, mediante conversores internos.
+			\item La estación central deberá incluir un RTC con respaldo energético para mantener fecha y hora ante cortes de energía.
+			\item Opcionalmente, las estaciones remotas podrán alimentarse mediante baterías internas cuando no se disponga de acceso directo a la red eléctrica o se desee simplificar su instalación en ubicaciones aisladas.
 		\end{enumerate}
+		
+	\item Requerimientos de comunicación:
+		\begin{enumerate}
+			\item La comunicación entre estación central y estaciones remotas se realizará mediante un protocolo inalámbrico que asegure un alcance mínimo de 20 m en interiores, utilizando antenas incorporadas.
+			\item El sistema deberá permitir la conexión de hasta 16 estaciones remotas a una misma estación central.
+			\item La estación central deberá contar con interfaz Ethernet 10/100 Mbps para la conexión con sistemas SCADA o de supervisión.
+			\item El protocolo inalámbrico deberá contemplar acuse de recibo y retransmisión de mensajes no confirmados.
+		\end{enumerate}
+		
+	\item Requerimientos de firmware:
+		\begin{enumerate}
+			\item El firmware deberá estar basado en arquitectura en capas, con separación entre drivers, middleware y lógica de aplicación.
+			\item La estación central deberá ejecutar un sistema operativo de tiempo real (RTOS) con soporte para tareas concurrentes.
+			\item Se deberá implementar una API estandarizada para el acceso a sensores y actuadores, tanto locales como remotos.
+			\item El desarrollo deberá utilizar control de versiones con Git.
+			\item Se emplearán buenas prácticas de programación modular y segura, inspiradas en lineamientos como MISRA-C.
+		\end{enumerate}
+		
 	\item Requerimientos de documentación:
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item Se deberá entregar documentación técnica del hardware: esquemáticos, lista de materiales y archivos de fabricación (gerbers).
+			\item La API del sistema deberá documentarse utilizando una herramienta de documentación automática como Doxygen.
+			\item Opcionalmente, se podrá incluir un manual de instalación y puesta en marcha orientado al usuario final.
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+		
+	\item Requerimientos de validación y pruebas:
+		\begin{enumerate}
+			\item Se deberán realizar pruebas funcionales que verifiquen la correcta lectura de sensores y la activación de salidas digitales, utilizando equipos de laboratorio.
+			\item Se deberán validar las funciones de comunicación inalámbrica y cableada mediante ensayos controlados en condiciones reproducibles.
+			\item Se deberá confirmar la integridad funcional del sistema en escenarios que simulen condiciones típicas de operación.
+		\end{enumerate}
+		
+	\item Requerimientos normativos:
+		\begin{enumerate}
+			\item El diseño del hardware deberá cumplir con las normas de seguridad eléctrica aplicables a equipos de baja tensión (por ej. IEC 61010 o IRAM equivalente).
+			\item Las placas de circuito impreso deberán diseñarse siguiendo la normativa IPC correspondiente (ej. IPC-2221, IPC-7351).
+			\item La documentación técnica deberá estructurarse siguiendo buenas prácticas industriales.
+		\end{enumerate}
+		
+
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+Las siguientes historias de usuarios describen funcionalidades deseables para distintos perfiles involucrados en la utilización, integración o instalación del sistema. Cada historia fue ponderada según su complejidad estimada, utilizando el enfoque de \textit{story points}, basado en la suma de tres dimensiones:
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+\begin{itemize}
+	\item Dificultad: nivel de complejidad técnica para implementar la historia.
+	\item Tiempo de implementación: cantidad de trabajo estimado para completarla.
+	\item Incertidumbre: grado de riesgo técnico o falta de información.
+\end{itemize}
 
-El formato propuesto es: 
+Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar a una suma total que se traduce en los \textit{story points} asociados. La prioridad relativa de cada historia (1 a 5) indica su importancia funcional respecto del resto.
+
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+	\item Como técnico instalador, quiero que las estaciones remotas dispongan de conectores industriales normalizados y borneras identificadas, para realizar una instalación rápida y sin errores.\\
+	\textit{Story points: 4} (dificultad: 1, tiempo de implementación: 1, incertidumbre: 2).
+	
+	\item Como ingeniero de mantenimiento, quiero que el sistema sea modular y permita reemplazar estaciones remotas sin reconfigurar la estación central, para facilitar el mantenimiento correctivo.\\
+	\textit{Story points: 7} (dificultad: 2, tiempo de implementación: 2, incertidumbre: 3).
+	
+	\item Como desarrollador de sistemas embebidos, quiero disponer de una API clara y documentada para programar la lógica de control del sistema, para poder implementar distintas aplicaciones sin modificar las capas base.\\
+	\textit{Story points: 7} (dificultad: 2, tiempo de implementación: 3, incertidumbre: 2).
+	
+	\item Como dueño de la empresa, quiero que los equipos desarrollados puedan certificarse según normas industriales comunes, para asegurar la compatibilidad con estándares del sector.\\
+	\textit{Story points: 9} (dificultad: 3, tiempo de implementación: 3, incertidumbre: 3).
+	
+	\item Como operador de mantenimiento, quiero recibir alertas en caso de desconexión prolongada de una estación remota, para poder actuar de forma preventiva ante fallas de comunicación.\\
+	\textit{Story points: 8} (dificultad: 3, tiempo de implementación: 3, incertidumbre: 2).
+	
+	\item Como usuario integrador del sistema, quiero poder configurar desde software el comportamiento de las estaciones remotas, para adaptar su funcionamiento a distintas aplicaciones industriales.\\
+	\textit{Story points: 7} (dificultad: 2, tiempo de implementación: 3, incertidumbre: 2).
+	
+	\item Como desarrollador de firmware, quiero contar con ejemplos de referencia y librerías reutilizables, para acelerar el desarrollo de nuevas estaciones remotas.\\
+	\textit{Story points: 7} (dificultad: 2, tiempo de implementación: 3, incertidumbre: 2).
 \end{enumerate}
-\end{consigna}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
-
 \begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
+	\item Diagramas de circuitos esquemáticos de las estaciones central y remota.
+	\item Listado de materiales (\textit{Bill of Materials}, BOM) de las estaciones central y remota.
+	\item Diseño de los circuitos impresos (\textit{Printed Circuit Board}, PCB) y generación de archivos de fabricación (\textit{gerbers} y archivos de ensamblado).
+	\item Prototipos funcionales de al menos una estación central y dos estaciones remotas.
+	\item Código fuente del firmware para estación central y estaciones remotas.
+	\item Documentación de la API.
+	\item Memoria técnica del trabajo final.
 \end{itemize}
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
+	\item Investigación preliminar (70 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+		\item Revisión del estado del arte de tecnologías inalámbricas para comunicación entre nodos (20 h).
+		\item Revisión de normativas industriales vigentes (compatibilidad electromagnética, alimentación, comunicaciones, etc.) (10 h).
+		\item Selección preliminar de microcontroladores para estación central y remotas. (15 h)
+		\item Estudio de alternativas de interfaz RS485 (10 h).
+		\item Revisión de opciones de alimentación y protección eléctrica para ambientes industriales (15 h).
 	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
+	
+	\item Desarrollo de hardware (210 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+		\item Revisión de proyectos similares: esquemas eléctricos, placas comerciales, kits de desarrollo, datasheets, notas de aplicación (20 h).
+		\item Planteo de la estructura del sistema: definición de módulos, arquitectura general, diagrama de bloques, topología de conexión (15 h).
+		\item Selección definitiva de componentes principales (15 h).
+		\item Creación de librerías de componentes personalizados (\textit{footprints}, símbolos) (15 h).
+		\item Diseño del esquemático eléctrico de la estación central (20 h).
+		\item Diseño del esquemático eléctrico de las estaciones remotas (20 h).
+		\item Ruteo del PCB de la estación central (25 h).
+		\item Ruteo del PCB de las estaciones remotas (25 h).
+		\item Generación de archivos \textit{gerbers}, BOM y archivos de ensamblado (pick and place, etc.) (10 h).
+		\item Pedido de prototipos y compra de componentes (5 h).
+		\item Armado de prototipos (20 h).
+		\item Pruebas funcionales eléctricas y corrección de errores de hardware (20 h).
 	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
+	\newpage
+	\item Desarrollo de firmware (250 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+		\item Investigación y selección de un RTOS (25 h).
+		\item Definición de la estructura modular del firmware (drivers, lógica de aplicación, comunicación, etc.) (15 h).
+		\item Definición de la arquitectura del firmware de la estación central (20 h).
+		\item Definición de la arquitectura del firmware de las estaciones remotas (20 h).
+		\item Diseño e implementación de la API (35 h).
+		\item Programación de drivers (35 h).
+		\item Implementación del stack de comunicación RS485 (30 h).
+		\item Implementación del stack TCP/IP (35 h).
+		\item Desarrollo de funciones de adquisición, control de salidas y configuración remota (35 h).
+		\item Documentación técnica del firmware y la API (20 h).
+	\end{enumerate}
+	
+	\item Integración del sistema (70 h)
+	\begin{enumerate}
+		\item Integración de hardware y firmware en estación central (15 h).
+		\item Integración de hardware y firmware en estaciones remotas (15 h).
+		\item Integración del sistema inalámbrico: comunicación entre estaciones remotas y estación central. (25 h).
+		\item Ajustes de firmware y hardware tras integración inicial (15 h).
+	\end{enumerate}
+	
+	\item Pruebas de validación (50 h)
+	\begin{enumerate}
+		\item Diseño de casos de prueba funcionales y de comunicación (15 h).
+		\item Ejecución de pruebas generales sobre el sistema completo (20 h).
+		\item Evaluación del desempeño en condiciones simuladas (15 h).
+	\end{enumerate}
+	
+	\item Cierre del proyecto (30 h)
+	\begin{enumerate}
+		\item Elaboración de la memoria técnica (20 h).
+		\item Elaboración de la presentación final (10 h).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: tantas.
-
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
-
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
-
-\end{consigna}
+Cantidad total de horas: 680 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
