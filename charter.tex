@@ -19,8 +19,8 @@
 \autor{Ing. Kirschner Lucas Sebastián}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Mgtr. Ing. Fernández Guillermo Alfredo}
-\pertenenciaDirector{FIO - UNaM} 
+\director{Mg. Ing. Fernández Guillermo Alfredo}
+\pertenenciaDirector{UNaM} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
 
@@ -30,7 +30,7 @@
  
 \fechaINICIO{29 de abril de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{17 de junio de 2025} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{27 de abril de 2026}	%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{abril de 2026}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -57,10 +57,10 @@
 \begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
-0      & Creación del documento                                 &\fechaInicioName \\ \hline
-1      & Se completa hasta el punto 5 inclusive                & {12} de {mayo} de 2025 \\ \hline
-%2      & Se completa hasta el punto 9 inclusive
+Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha	\\ \hline
+0      & Creación del documento                                 &\ fechaInicioName					\\ \hline
+1      & Se completa hasta el punto 5 inclusive                 & {12} de {mayo} de 2025			\\ \hline
+2      & Se completa hasta el punto 9 inclusive \newline Se corrigen errores gramaticales y definición del Cliente de la revisión 1	& {19} de {mayo} de 2025			\\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 680 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 700 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -112,14 +112,14 @@ En el contexto actual, muchos sistemas de automatización industrial están dise
 
 La solución propuesta contempla una arquitectura distribuida compuesta por una estación central y múltiples estaciones remotas. La estación central se construirá en torno a un microcontrolador de altas prestaciones (por ejemplo, ARM Cortex-M7 o M33), con capacidad para ejecutar múltiples tareas con restricciones temporales mediante un sistema operativo en tiempo real (\textit{Real-Time Operating System}, RTOS). Integrará una interfaz Ethernet para conexión con sistemas de supervisión y control, tales como plataformas \textit{Supervisory Control and Data Acquisition} (SCADA), y una interfaz inalámbrica de alta confiabilidad para comunicarse con las estaciones remotas. También contará con un reloj en tiempo real (\textit{Real-Time Clock}, RTC) para mantener el registro horario, y se evaluará el uso de \textit{Power over Ethernet} (PoE) como alternativa de alimentación.
 
-Las estaciones remotas estarán equipadas con microcontroladores de menores recursos (como ARM Cortex-M3 o M4), orientados a la adquisición de señales y a la activación de actuadores en campo. Contarán con entradas y salidas digitales industriales, adecuadas para la conexión de sensores discretos y dispositivos como relés o contactores, así como una interfaz de comunicación industrial, como por ejemplo RS485, que permita la integración con diversos equipos del entorno. La comunicación con la estación central se realizará mediante un enlace inalámbrico confiable. Estas estaciones estarán diseñadas para operar en entornos exigentes, alimentadas desde la red eléctrica de 220 V, con la posibilidad de integrar baterías de respaldo para asegurar continuidad operativa.
+Las estaciones remotas estarán equipadas con microcontroladores de menores recursos (como ARM Cortex-M3 o M4), orientados a la adquisición de señales y a la activación de actuadores en campo. Contarán con entradas y salidas digitales industriales, adecuadas para la conexión de sensores discretos y dispositivos como relés o contactores, así como una interfaz de comunicación industrial, como RS485, que permita la integración con diversos equipos del entorno. La comunicación con la estación central se realizará mediante un enlace inalámbrico confiable. Estas estaciones estarán diseñadas para operar en entornos exigentes, alimentadas desde la red eléctrica de 220 V, con la posibilidad de integrar baterías de respaldo para asegurar continuidad operativa.
 
-Desde el punto de vista del software, se implementará una arquitectura por capas que permita separar claramente las funciones de bajo nivel (controladores, comunicación, gestión de entradas/salidas) de la lógica de aplicación. Se proveerá una interfaz de programación de aplicaciones (\textit{Application Programming Interface}, API) que facilite el desarrollo de soluciones específicas sobre la plataforma base. Este enfoque modular permitirá escalar el sistema según las necesidades, incorporar nuevas estaciones o funcionalidades sin rediseñar el conjunto, y facilitar su mantenimiento y extensión futura.
+Desde el punto de vista del software, se implementará una arquitectura por capas que permita separar claramente las funciones de bajo nivel (controladores, comunicación, gestión de entradas/salidas) de la lógica de aplicación. Se proveerá una interfaz de programación de aplicaciones (\textit{Application Programming Interface}, API) que facilite el desarrollo de soluciones específicas sobre la plataforma base. Este enfoque modular permitirá escalar el sistema según las necesidades, incorporar nuevas estaciones o funcionalidades sin rediseñar el conjunto y facilitar su mantenimiento y extensión futura.
 
 La propuesta se destaca por su flexibilidad, escalabilidad y adaptabilidad. Frente a las soluciones actuales, que suelen ser cerradas y costosas, este proyecto plantea un sistema abierto y personalizable, orientado a pequeñas y medianas industrias que requieren soluciones específicas sin incurrir en altos costos de integración.
 
 \newpage
-La figura \ref{fig:diagBloques} presenta el diagrama en bloques del sistema propuesto, el cual resume visualmente la arquitectura distribuida planteada. Se distinguen claramente la estación central, con su microcontrolador de altas prestaciones, las interfaces de comunicación (Ethernet e inalámbrica) y las opciones de alimentación (PoE o red eléctrica), y las estaciones remotas, dotadas de entradas y salidas digitales industriales, interfaz inalámbrica y comunicación serie robusta para dispositivos de campo.
+La figura \ref{fig:diagBloques} presenta el diagrama en bloques del sistema propuesto, el cual resume visualmente la arquitectura distribuida planteada. Se distinguen claramente la estación central, con su microcontrolador de altas prestaciones, las interfaces de comunicación (Ethernet e inalámbrica, las opciones de alimentación (PoE o red eléctrica) y las estaciones remotas, dotadas de entradas y salidas digitales industriales, interfaz inalámbrica y comunicación serie robusta para dispositivos de campo.
 
 \begin{figure}[htpb]
 \centering 
@@ -141,7 +141,7 @@ A continuación, se identifican los principales interesados del proyecto, detall
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 %Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & -      &\empclientename	& \clientename        	\\ \hline
+Cliente       & \supname       & \pertesupname	& Representante académico de PyMEs industriales del sector manufacturero        	\\ \hline
 %Impulsor      & Kirschner Lucas Sebastián & -      	& Emprendedor y promotor de la iniciativa \\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 %Colaboradores &                   &              	&        	\\ \hline
@@ -154,24 +154,25 @@ Usuario final & - 				  & Industria genérica & Operadores y encargados de mante
 \end{table}
  
 \begin{itemize}
-	\item Cliente: Representado por industrias con baja incorporación tecnológica y limitada infraestructura de conectividad. Este tipo de organización busca soluciones que le permitan modernizar sus procesos productivos sin necesidad de realizar grandes inversiones en cableado o infraestructura física. Valora la simplicidad en la implementación, la escalabilidad y la robustez de los sistemas.
+	\item Cliente: el \supname, quien además actúa como director del trabajo final, asume el rol de cliente en representación académica de pequeñas y medianas industrias del sector manufacturero. Aporta su conocimiento en sistemas embebidos aplicados a contextos productivos, y colabora en la definición de requerimientos y validación de los entregables del proyecto. Este perfil de cliente representa a organizaciones con bajo nivel de automatización y escasa infraestructura de conectividad, que buscan soluciones robustas, escalables y de bajo costo para modernizar sus procesos productivos sin necesidad de realizar grandes inversiones en cableado o infraestructura física.
+	
 	
 	%\item Impulsor: Lucas Sebastián Kirschner, autor del proyecto y profesional del área, identifica la necesidad del sector y promueve una solución técnica innovadora basada en su experiencia en sistemas embebidos. En este rol, impulsa el desarrollo, búsqueda de valor y validación de la propuesta, combinando visión técnica y estratégica.
 	
-	\item Responsable: El autor del proyecto, Ing. Lucas Sebastián Kirschner, asume la responsabilidad sobre el mismo. Tiene a su cargo el diseño, implementación, validación y documentación del sistema, así como la planificación y ejecución del trabajo dentro de los plazos establecidos.
+	\item Responsable: el autor del proyecto, Ing. Lucas Sebastián Kirschner, asume la responsabilidad sobre el mismo. Tiene a su cargo el diseño, implementación, validación y documentación del sistema, así como la planificación y ejecución del trabajo dentro de los plazos establecidos.
 	
-	\item Orientador: El Mgtr. Ing. Guillermo Alfredo Fernández es profesor titular e investigador de la Facultad de Ingeniería de la Universidad Nacional de Misiones (FIO - UNaM), con una reconocida trayectoria en sistemas embebidos aplicados a energías renovables y automatización. Su rol es fundamental para validar las decisiones técnicas, guiar metodológicamente el desarrollo y asegurar el rigor académico del trabajo final.
+	\item Orientador: el Mg. Ing. Guillermo Alfredo Fernández es profesor titular e investigador de la Facultad de Ingeniería de la Universidad Nacional de Misiones (FIO - UNaM), con una reconocida trayectoria en sistemas embebidos aplicados a energías renovables y automatización. Su rol es fundamental para validar las decisiones técnicas, guiar metodológicamente el desarrollo y asegurar el rigor académico del trabajo final.
 	
-	\item Opositores: Fabricantes de PLC convencionales e integradores de soluciones cableadas que podrían ver afectada su posición en el mercado ante la aparición de propuestas modulares, económicas y de implementación más ágil como la que plantea este proyecto. Esta oposición potencial se da principalmente en entornos donde la adopción de nuevas tecnologías no forma parte del modelo de negocio tradicional.
+	\item Opositores: fabricantes de PLC convencionales e integradores de soluciones cableadas que podrían ver afectada su posición en el mercado ante la aparición de propuestas modulares, económicas y de implementación más ágil como la que plantea este proyecto. Esta oposición potencial se da principalmente en entornos donde la adopción de nuevas tecnologías no forma parte del modelo de negocio tradicional.
 	
-	\item Usuario final: Personal técnico de planta, incluyendo operarios, encargados de mantenimiento y supervisores de proceso. Interactuarán con el sistema para monitorear variables de proceso y controlar dispositivos industriales. Se prioriza la facilidad de uso, confiabilidad operativa y adaptación a diferentes entornos industriales.
+	\item Usuario final: personal técnico de planta, incluyendo operarios, encargados de mantenimiento y supervisores de proceso. Interactuarán con el sistema para monitorear variables de proceso y controlar dispositivos industriales. Se prioriza la facilidad de uso, confiabilidad operativa y adaptación a diferentes entornos industriales.
 \end{itemize}
 
 \newpage
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-Desarrollar una solución modular y escalable que permita monitorear y controlar procesos industriales en entornos con baja infraestructura de conectividad, mediante una arquitectura distribuida que combine estaciones centrales y remotas interconectadas por enlaces inalámbricos confiables. La iniciativa surge como respuesta a la necesidad de automatización en industrias que presentan limitaciones técnicas, económicas o geográficas para implementar sistemas cableados convencionales, y busca facilitar la recolección de datos de campo, la activación de actuadores y la implementación de lógica de control adaptada a cada caso. %Mediante el diseño de hardware robusto y firmware con capas de abstracción bien definidas, se espera reducir barreras técnicas para el desarrollo de aplicaciones específicas, optimizar el mantenimiento de equipos, mejorar la eficiencia operativa y ofrecer una herramienta flexible que se adapte a distintas escalas de implementación industrial.
+Desarrollar una solución modular y escalable que permita monitorear y controlar procesos industriales en entornos con baja infraestructura de conectividad, mediante una arquitectura distribuida que combine estaciones centrales y remotas interconectadas por enlaces inalámbricos confiables. La iniciativa surge como respuesta a la necesidad de automatización en industrias que presentan limitaciones técnicas, económicas o geográficas para implementar sistemas cableados convencionales y busca facilitar la recolección de datos de campo, la activación de actuadores y la implementación de lógica de control adaptada a cada caso. %Mediante el diseño de hardware robusto y firmware con capas de abstracción bien definidas, se espera reducir barreras técnicas para el desarrollo de aplicaciones específicas, optimizar el mantenimiento de equipos, mejorar la eficiencia operativa y ofrecer una herramienta flexible que se adapte a distintas escalas de implementación industrial.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
@@ -221,8 +222,8 @@ Para el desarrollo del presente proyecto se supone que:
 			\item El sistema deberá contar con una estación central basada en un microcontrolador ARM Cortex-M7 (o superior), con al menos 512 KB de RAM y 2 MB de Flash.
 			\item Las estaciones remotas deberán emplear microcontroladores ARM Cortex-M3/M4 o similar, con al menos 64 KB de RAM y 256 KB de Flash.
 			\item La interfaz RS485 deberá cumplir con la norma TIA/EIA-485-A, soportando velocidades de hasta 115200 baudios en distancias de hasta 100 m.
-			\item Cada estación remota deberá contar con entradas digitales compatibles con sensores industriales de 24 V con colector abierto.
-			\item Las salidas digitales deberán soportar cargas de al menos 30 V y 500 mA, con aislamiento galvánico mediante optoacopladores o relés.
+			\item Cada estación remota deberá contar con entradas digitales compatibles con sensores industriales de 24 V.
+			\item Las salidas digitales deberán soportar cargas de al menos 30 V y 500 mA, con aislamiento galvánico.
 			\item Las estaciones deberán alimentarse desde la red eléctrica de 220 V/50 Hz, mediante conversores internos.
 			\item La estación central deberá incluir un RTC con respaldo energético para mantener fecha y hora ante cortes de energía.
 			\item Opcionalmente, las estaciones remotas podrán alimentarse mediante baterías internas cuando no se disponga de acceso directo a la red eléctrica o se desee simplificar su instalación en ubicaciones aisladas.
@@ -230,7 +231,7 @@ Para el desarrollo del presente proyecto se supone que:
 		
 	\item Requerimientos de comunicación:
 		\begin{enumerate}
-			\item La comunicación entre estación central y estaciones remotas se realizará mediante un protocolo inalámbrico que asegure un alcance mínimo de 20 m en interiores, utilizando antenas incorporadas.
+			\item La comunicación entre estación central y estaciones remotas se realizará mediante un protocolo inalámbrico que asegure un alcance mínimo de 20 m en interiores.
 			\item El sistema deberá permitir la conexión de hasta 16 estaciones remotas a una misma estación central.
 			\item La estación central deberá contar con interfaz Ethernet 10/100 Mbps para la conexión con sistemas SCADA o de supervisión.
 			\item El protocolo inalámbrico deberá contemplar acuse de recibo y retransmisión de mensajes no confirmados.
@@ -240,23 +241,23 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item El firmware deberá estar basado en arquitectura en capas, con separación entre drivers, middleware y lógica de aplicación.
 			\item La estación central deberá ejecutar un sistema operativo de tiempo real (RTOS) con soporte para tareas concurrentes.
-			\item Se deberá implementar una API estandarizada para el acceso a sensores y actuadores, tanto locales como remotos.
+			\item Deberá implementarse una API estandarizada para el acceso a sensores y actuadores, tanto locales como remotos.
 			\item El desarrollo deberá utilizar control de versiones con Git.
-			\item Se emplearán buenas prácticas de programación modular y segura, inspiradas en lineamientos como MISRA-C.
+			\item Se adoptaran buenas prácticas de programación modular y segura, inspiradas en lineamientos como MISRA-C.
 		\end{enumerate}
 		
 	\item Requerimientos de documentación:
 		\begin{enumerate}
-			\item Se deberá entregar documentación técnica del hardware: esquemáticos, lista de materiales y archivos de fabricación (gerbers).
+			\item La documentación técnica del hardware incluirá esquemáticos, lista de materiales y archivos de fabricación (gerbers).
 			\item La API del sistema deberá documentarse utilizando una herramienta de documentación automática como Doxygen.
 			\item Opcionalmente, se podrá incluir un manual de instalación y puesta en marcha orientado al usuario final.
 		\end{enumerate}
 		
 	\item Requerimientos de validación y pruebas:
 		\begin{enumerate}
-			\item Se deberán realizar pruebas funcionales que verifiquen la correcta lectura de sensores y la activación de salidas digitales, utilizando equipos de laboratorio.
-			\item Se deberán validar las funciones de comunicación inalámbrica y cableada mediante ensayos controlados en condiciones reproducibles.
-			\item Se deberá confirmar la integridad funcional del sistema en escenarios que simulen condiciones típicas de operación.
+			\item Las pruebas funcionales deberán verificar la correcta lectura de sensores y la activación de salidas digitales, utilizando equipos de laboratorio.
+			\item Las funciones de comunicación inalámbrica y cableada serán validadas mediante ensayos controlados en condiciones reproducibles.
+			\item Se confirmará la integridad funcional del sistema en escenarios que simulen condiciones típicas de operación.
 		\end{enumerate}
 		
 	\item Requerimientos normativos:
@@ -322,16 +323,16 @@ Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar 
 \label{sec:wbs}
 
 \begin{enumerate}
-	\item Investigación preliminar (70 h)
+	\item Investigación preliminar (90 h)
 	\begin{enumerate}
-		\item Revisión del estado del arte de tecnologías inalámbricas para comunicación entre nodos (20 h).
-		\item Revisión de normativas industriales vigentes (compatibilidad electromagnética, alimentación, comunicaciones, etc.) (10 h).
+		\item Revisión del estado del arte de tecnologías inalámbricas para comunicación entre nodos (25 h).
+		\item Revisión de normativas industriales vigentes (compatibilidad electromagnética, alimentación, comunicaciones, etc.) (20 h).
 		\item Selección preliminar de microcontroladores para estación central y remotas. (15 h)
 		\item Estudio de alternativas de interfaz RS485 (10 h).
-		\item Revisión de opciones de alimentación y protección eléctrica para ambientes industriales (15 h).
+		\item Revisión de opciones de alimentación y protección eléctrica para ambientes industriales (20 h).
 	\end{enumerate}
 	
-	\item Desarrollo de hardware (210 h)
+	\item Desarrollo de hardware (215 h)
 	\begin{enumerate}
 		\item Revisión de proyectos similares: esquemas eléctricos, placas comerciales, kits de desarrollo, datasheets, notas de aplicación (20 h).
 		\item Planteo de la estructura del sistema: definición de módulos, arquitectura general, diagrama de bloques, topología de conexión (15 h).
@@ -383,7 +384,7 @@ Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar 
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 680 h
+Cantidad total de horas: 700 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
