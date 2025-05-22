@@ -60,7 +60,8 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha	\\ \hline
 0      & Creación del documento                                 &\fechaInicioName					\\ \hline
 1      & Se completa hasta el punto 5 inclusive                 & {12} de {mayo} de 2025			\\ \hline
-2      & Se completa hasta el punto 9 inclusive \newline Se corrigen errores gramaticales y definición del Cliente de la revisión 1	& {19} de {mayo} de 2025			\\ \hline
+2      & Se completa hasta el punto 9 inclusive \newline Se corrigen errores de redacción y definición del Cliente de la revisión 1	& {19} de {mayo} de 2025			\\ \hline
+3      & Se completa hasta el punto 12 inclusive \newline Se corrigen errores de redacción y el desglose de tareas de la revisión 2	& {27} de {mayo} de 2025			\\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -85,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 700 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo de un sistema distribuido conformado por una estación central y múltiples estaciones remotas, para facilitar la adquisición de datos de campo, el control de actuadores y la comunicación eficiente en entornos industriales donde las soluciones cableadas resultan poco prácticas o costosas. El trabajo tendrá un presupuesto preliminar de 650 horas y un costo estimado de \$ 11.000.000,00, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -231,7 +232,7 @@ Para el desarrollo del presente proyecto se supone que:
 		
 	\item Requerimientos de comunicación:
 		\begin{enumerate}
-			\item La comunicación entre estación central y estaciones remotas se realizará mediante un protocolo inalámbrico que asegure un alcance mínimo de 20 m en interiores.
+			\item La comunicación entre la estación central y las estaciones remotas se realizará mediante un protocolo inalámbrico que asegure un alcance mínimo de 20 m en interiores.
 			\item El sistema deberá permitir la conexión de hasta 16 estaciones remotas a una misma estación central.
 			\item La estación central deberá contar con interfaz Ethernet 10/100 Mbps para la conexión con sistemas SCADA o de supervisión.
 			\item El protocolo inalámbrico deberá contemplar acuse de recibo y retransmisión de mensajes no confirmados.
@@ -248,8 +249,9 @@ Para el desarrollo del presente proyecto se supone que:
 		
 	\item Requerimientos de documentación:
 		\begin{enumerate}
-			\item La documentación técnica del hardware incluirá esquemáticos, lista de materiales y archivos de fabricación (gerbers).
+			\item La documentación técnica del hardware incluirá esquemáticos, lista de materiales y archivos de fabricación (\textit{gerbers}).
 			\item La API del sistema deberá documentarse utilizando una herramienta de documentación automática como Doxygen.
+			\item La planificación deberá contemplar la elaboración de una memoria técnica del trabajo final y un informe de avances según las pautas del curso.
 			\item Opcionalmente, se podrá incluir un manual de instalación y puesta en marcha orientado al usuario final.
 		\end{enumerate}
 		
@@ -262,9 +264,8 @@ Para el desarrollo del presente proyecto se supone que:
 		
 	\item Requerimientos normativos:
 		\begin{enumerate}
-			\item El diseño del hardware deberá cumplir con las normas de seguridad eléctrica aplicables a equipos de baja tensión (por ej. IEC 61010 o IRAM equivalente).
-			\item Las placas de circuito impreso deberán diseñarse siguiendo la normativa IPC correspondiente (ej. IPC-2221, IPC-7351).
-			\item La documentación técnica deberá estructurarse siguiendo buenas prácticas industriales.
+			\item El diseño del hardware deberá cumplir con las normas de seguridad eléctrica aplicables a equipos de baja tensión (por ejemplo IEC 61010 o IRAM equivalente).
+			\item Las placas de circuito impreso deberán diseñarse siguiendo la normativa IPC correspondiente (por ejemplo IPC-2221, IPC-7351).
 		\end{enumerate}
 		
 
@@ -281,7 +282,7 @@ Las siguientes historias de usuarios describen funcionalidades deseables para di
 	\item Incertidumbre: grado de riesgo técnico o falta de información.
 \end{itemize}
 
-Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar a una suma total que se traduce en los \textit{story points} asociados. La prioridad relativa de cada historia (1 a 5) indica su importancia funcional respecto del resto.
+Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar a una suma total que se traduce en los \textit{story points} asociados. La prioridad relativa de cada historia (1 a 9) indica su importancia funcional respecto del resto.
 
 \begin{enumerate}
 	\item Como técnico instalador, quiero que las estaciones remotas dispongan de conectores industriales normalizados y borneras identificadas, para realizar una instalación rápida y sin errores.\\
@@ -302,7 +303,7 @@ Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar 
 	\item Como usuario integrador del sistema, quiero poder configurar desde software el comportamiento de las estaciones remotas, para adaptar su funcionamiento a distintas aplicaciones industriales.\\
 	\textit{Story points: 7} (dificultad: 2, tiempo de implementación: 3, incertidumbre: 2).
 	
-	\item Como desarrollador de firmware, quiero contar con ejemplos de referencia y librerías reutilizables, para acelerar el desarrollo de nuevas estaciones remotas.\\
+	\item Como desarrollador de firmware, quiero contar con ejemplos de referencia y bibliotecas reutilizables, para acelerar el desarrollo de nuevas estaciones remotas.\\
 	\textit{Story points: 7} (dificultad: 2, tiempo de implementación: 3, incertidumbre: 2).
 \end{enumerate}
 
@@ -316,6 +317,7 @@ Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar 
 	\item Prototipos funcionales de al menos una estación central y dos estaciones remotas.
 	\item Código fuente del firmware para estación central y estaciones remotas.
 	\item Documentación de la API.
+	\item Informe de avances.
 	\item Memoria técnica del trabajo final.
 \end{itemize}
 
@@ -323,68 +325,69 @@ Cada dimensión toma un valor entre 1 (bajo), 2 (medio) y 3 (alto), dando lugar 
 \label{sec:wbs}
 
 \begin{enumerate}
-	\item Investigación preliminar (90 h)
+	\item Investigación preliminar (60 h)
 	\begin{enumerate}
-		\item Revisión del estado del arte de tecnologías inalámbricas para comunicación entre nodos (25 h).
-		\item Revisión de normativas industriales vigentes (compatibilidad electromagnética, alimentación, comunicaciones, etc.) (20 h).
-		\item Selección preliminar de microcontroladores para estación central y remotas. (15 h)
+		\item Revisión del estado del arte de tecnologías inalámbricas para comunicación entre nodos (20 h).
+		\item Revisión de normativas industriales vigentes (compatibilidad electromagnética, alimentación, comunicaciones, etc.) (10 h).
+		\item Selección preliminar de microcontroladores para estación central y remotas. (10 h)
 		\item Estudio de alternativas de interfaz RS485 (10 h).
-		\item Revisión de opciones de alimentación y protección eléctrica para ambientes industriales (20 h).
+		\item Revisión de opciones de alimentación y protección eléctrica para ambientes industriales (10 h).
 	\end{enumerate}
 	
-	\item Desarrollo de hardware (215 h)
+	\item Desarrollo de hardware (180 h)
 	\begin{enumerate}
-		\item Revisión de proyectos similares: esquemas eléctricos, placas comerciales, kits de desarrollo, datasheets, notas de aplicación (20 h).
-		\item Planteo de la estructura del sistema: definición de módulos, arquitectura general, diagrama de bloques, topología de conexión (15 h).
-		\item Selección definitiva de componentes principales (15 h).
+		\item Revisión de proyectos similares: esquemas eléctricos, placas comerciales, kits de desarrollo, datasheets, notas de aplicación (15 h).
+		\item Planteo de la estructura del sistema: definición de módulos, arquitectura general, diagrama de bloques, topología de conexión (10 h).
+		\item Selección definitiva de componentes principales (10 h).
 		\item Creación de librerías de componentes personalizados (\textit{footprints}, símbolos) (15 h).
 		\item Diseño del esquemático eléctrico de la estación central (20 h).
 		\item Diseño del esquemático eléctrico de las estaciones remotas (20 h).
 		\item Ruteo del PCB de la estación central (25 h).
-		\item Ruteo del PCB de las estaciones remotas (25 h).
+		\item Ruteo del PCB de las estaciones remotas (20 h).
 		\item Generación de archivos \textit{gerbers}, BOM y archivos de ensamblado (pick and place, etc.) (5 h).
 		\item Pedido de prototipos y compra de componentes (5 h).
-		\item Armado de prototipos (25 h).
-		\item Pruebas funcionales eléctricas y corrección de errores de hardware (20 h).
+		\item Armado de prototipos (20 h).
+		\item Pruebas funcionales eléctricas y ajustes en el hardware (15 h).
 	\end{enumerate}
 	\newpage
-	\item Desarrollo de firmware (250 h)
+	\item Desarrollo de firmware (260 h)
 	\begin{enumerate}
-		\item Investigación y selección de un RTOS (25 h).
+		\item Investigación y selección de un RTOS (20 h).
 		\item Definición de la estructura modular del firmware (drivers, lógica de aplicación, comunicación, etc.) (15 h).
 		\item Definición de la arquitectura del firmware de la estación central (20 h).
 		\item Definición de la arquitectura del firmware de las estaciones remotas (20 h).
 		\item Diseño e implementación de la API (35 h).
 		\item Programación de drivers (35 h).
-		\item Implementación del stack de comunicación RS485 (30 h).
-		\item Implementación del stack TCP/IP (35 h).
+		\item Implementación del \textit{stack} de comunicación RS485 (30 h).
+		\item Implementación del \textit{stack} TCP/IP (30 h).
 		\item Desarrollo de funciones de adquisición, control de salidas y configuración remota (35 h).
 		\item Documentación técnica del firmware y la API (20 h).
 	\end{enumerate}
 	
-	\item Integración del sistema (70 h)
+	\item Integración del sistema (60 h)
 	\begin{enumerate}
 		\item Integración de hardware y firmware en estación central (15 h).
 		\item Integración de hardware y firmware en estaciones remotas (15 h).
-		\item Integración del sistema inalámbrico: comunicación entre estaciones remotas y estación central. (25 h).
-		\item Ajustes de firmware y hardware tras integración inicial (15 h).
+		\item Integración del sistema inalámbrico: comunicación entre estaciones remotas y estación central. (20 h).
+		\item Ajustes de firmware y hardware tras integración inicial (10 h).
 	\end{enumerate}
 	
-	\item Pruebas de validación (50 h)
+	\item Pruebas de validación (40 h)
 	\begin{enumerate}
-		\item Diseño de casos de prueba funcionales y de comunicación (15 h).
+		\item Diseño de casos de prueba funcionales y de comunicación (10 h).
 		\item Ejecución de pruebas generales sobre el sistema completo (20 h).
-		\item Evaluación del desempeño en condiciones simuladas (15 h).
+		\item Evaluación del desempeño en condiciones simuladas (10 h).
 	\end{enumerate}
 	
-	\item Cierre del proyecto (30 h)
+	\item Cierre del proyecto (50 h)
 	\begin{enumerate}
-		\item Elaboración de la memoria técnica (20 h).
+		\item Desarrollo del informe de avances (10 h)
+		\item Escritura de la memoria técnica (30 h).
 		\item Elaboración de la presentación final (10 h).
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 700 h
+Cantidad total de horas: 650 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
