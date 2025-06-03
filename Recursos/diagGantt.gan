@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Diagrama de Gantt GdP" company="CESE" webLink="https://github.com/lucaskirschner/GdP-Planificacion-de-Trabajo-Final.git" view-date="2025-06-30" view-index="0" gantt-divider-location="382" resource-divider-location="300" version="3.3.3316" locale="es_ES">
+    <description><![CDATA[Diagrama de Gantt de la planificación de proyecto final de la Carrera de Especialización en Sistemas Embebidos de la Universidad de Buenos Aires, realizada en el curso Gestión de Proyectos]]></description>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="300" order="0"/>
+        <field id="tpd6" name="Duración" width="66" order="1"/>
+        <option id="taskLabelUp" value=""/>
+        <option id="taskLabelRight" value="name"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+    </view>
+    <view id="resource-table">
+        <field id="7" name="Carga total" width="52" order="0"/>
+        <field id="6" name="Coste total" width="51" order="1"/>
+        <field id="0" name="Nombre" width="122" order="2"/>
+        <field id="1" name="Función" width="56" order="3"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="7" uid="c9c7c7e24f754b4e860faf3cd4b3e460" name="1. Investigación preliminar" meeting="false" start="2025-06-17" duration="12" complete="0" expand="true">
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+            <task id="8" uid="8f3b5496c83a4d4abcf90764d44b2499" name="1.1. Revisión de estado del arte" meeting="false" start="2025-06-17" duration="4" complete="0" expand="true">
+                <depend id="9" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="9" uid="c444995dd78a4c1aa99acf6997a7cbaa" name="1.2. Revisión de normativas industriales" meeting="false" start="2025-06-21" duration="2" complete="0" expand="true">
+                <depend id="10" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="10" uid="c47d3ca4b6ae47a0824dcf71dbbfe1bc" name="1.3. Selección de microcontroladores." meeting="false" start="2025-06-23" duration="2" complete="0" expand="true">
+                <depend id="17" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="11" uid="31a447f669564dbc828e00bef42bfbde" name="1.4. Estudio de interfaz RS485" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2025-06-25" duration="2" complete="0" expand="true">
+                <depend id="12" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="12" uid="b91c2fbce66f4f5e957b0ede80f9e4ed" name="1.5. Revisión de interfaces industriales" meeting="false" start="2025-06-27" duration="2" complete="0" expand="true">
+                <depend id="14" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="13" uid="02f841bc620b4d85b6874d25f9d27f3e" name="2. Desarrollo de hardware" meeting="false" start="2025-06-29" duration="51" complete="0" expand="true">
+            <depend id="37" type="2" difference="0" hardness="Strong"/>
+            <task id="14" uid="48e9a538533847f1af0cc2cfa6d12a9f" name="2.1. Revisión de proyectos similares" meeting="false" start="2025-06-29" duration="3" complete="0" expand="true">
+                <depend id="15" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="15" uid="fe978c4a6e2249b49776600874c1a013" name="2.2. Planteo de estructura del sistema" meeting="false" start="2025-07-02" duration="2" complete="0" expand="true">
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="19" uid="bc3c6825e8c2411bb77f6c80cdd123d0" name="2.3. Selección de componentes" meeting="false" start="2025-07-04" duration="2" complete="0" expand="true">
+                <depend id="20" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="20" uid="896b03622fbb4906a6938752c9d3ccd9" name="2.4. Creación de librerías" meeting="false" start="2025-07-06" duration="3" complete="0" expand="true">
+                <depend id="21" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="21" uid="734379e382604edeba76041b31280a53" name="2.5. Esquemático estación central" meeting="false" start="2025-07-09" duration="4" complete="0" expand="true">
+                <depend id="22" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="22" uid="e2a959ae027749aaa8563596e4c8f76e" name="2.6. Esquemático estación remota" meeting="false" start="2025-07-13" duration="4" complete="0" expand="true">
+                <depend id="23" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="23" uid="5bc33ba9c3ba48f5b38c65549bb989b9" name="2.7. Ruteo PCB estación central" meeting="false" start="2025-07-17" duration="5" complete="0" expand="true">
+                <depend id="24" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="24" uid="7c35431b1ad94a4eb312c91a2e58d749" name="2.8. Ruteo PCB estación remota" meeting="false" start="2025-07-22" duration="4" complete="0" expand="true">
+                <depend id="25" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="25" uid="338bf742edaf484d879cc332dbbf7515" name="2.9. Generación archivos de fabricación" meeting="false" start="2025-07-26" duration="1" complete="0" expand="true">
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="26" uid="a644db51f12f48cdac4a179395343ea4" name="2.10. Pedido prototipos y compra componentes" meeting="false" start="2025-07-27" duration="1" complete="0" expand="true">
+                <depend id="27" type="2" difference="15" hardness="Strong"/>
+            </task>
+            <task id="27" uid="a73045e1391c4fc3bfbcf7827596a06e" name="2.11. Armado de prototipos" meeting="false" start="2025-08-12" duration="4" complete="0" expand="true">
+                <depend id="28" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="28" uid="258b4dcb6a0b412588b8a52ba8e344d8" name="2.12. Pruebas funcionales" meeting="false" start="2025-08-16" duration="3" complete="0" expand="true">
+                <depend id="38" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="16" uid="5bf2013336a6454685cc11052e03a1d1" name="3. Desarrollo del firmware" meeting="false" start="2025-07-28" duration="59" complete="0" priority="0" expand="true">
+            <depend id="37" type="2" difference="0" hardness="Strong"/>
+            <task id="17" uid="9453153df81d4add94dcfbf4ba68f8e8" name="3.1. Selección de un RTOS" meeting="false" start="2025-07-28" duration="4" complete="0" thirdDate="2025-07-28" thirdDate-constraint="1" expand="true">
+                <depend id="18" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="18" uid="63265b51992f4c438c0bbf39a5bc0d13" name="3.2. Definicion de estructura del firmware" meeting="false" start="2025-08-01" duration="3" complete="0" expand="true">
+                <depend id="29" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="29" uid="f39bad5c2efd44f0bc0c75968f1ac06c" name="3.3. Arquitectura firmware estación central" meeting="false" start="2025-08-04" duration="4" complete="0" expand="true">
+                <depend id="30" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="30" uid="0663c27392f14d108172813e9c9124bf" name="3.4. Arquitectura firmware estación remota" meeting="false" start="2025-08-08" duration="4" complete="0" expand="true">
+                <depend id="31" type="2" difference="7" hardness="Strong"/>
+            </task>
+            <task id="31" uid="aa86314a8277434dbaf06fe3afa9b919" name="3.5. Implementación de la API" meeting="false" start="2025-08-19" duration="7" complete="0" expand="true">
+                <depend id="32" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="32" uid="b2c6453e5e234d16aa5027e30dd7f4a6" name="3.6. Programación de drivers" meeting="false" start="2025-08-26" duration="7" complete="0" expand="true">
+                <depend id="33" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="33" uid="e11a375fe71d446693d968bee03f6d29" name="3.7. Implementación stack RS485" meeting="false" start="2025-09-02" duration="6" complete="0" expand="true">
+                <depend id="34" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="34" uid="18fdbd10a2db400c9130fab328acef74" name="3.8. Implementación stack TCP/IP" meeting="false" start="2025-09-08" duration="6" complete="0" expand="true">
+                <depend id="35" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="35" uid="2b8b083835b44df5864fe2121726ab6d" name="3.9. Funciones de adquisición" meeting="false" start="2025-09-14" duration="7" complete="0" expand="true">
+                <depend id="36" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="36" uid="7980248c1c564051992e0b8af7069009" name="3.10. Documentación del firmware y de la API" meeting="false" start="2025-09-21" duration="4" complete="0" expand="true">
+                <depend id="38" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="37" uid="d775bc99aab44120925873d4f6dfa5f1" name="4. Integración del sistema" meeting="false" start="2025-09-25" duration="12" complete="0" expand="true">
+            <depend id="42" type="2" difference="0" hardness="Strong"/>
+            <task id="38" uid="4d4ecef11b9a46c98d5dcb437ca2f45d" name="4.1. Integración en estación central" meeting="false" start="2025-09-25" duration="3" complete="0" expand="true">
+                <depend id="39" type="2" difference="0" hardness="Strong"/>
+                <depend id="40" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="39" uid="66d050baec0c430db5c33f44e9052942" name="4.2. Integración en estaciones remotas" meeting="false" start="2025-09-28" duration="3" complete="0" expand="true">
+                <depend id="40" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="40" uid="429740fcaff8400385945e2aca5533b5" name="4.3. Integración general" meeting="false" start="2025-10-01" duration="4" complete="0" expand="true">
+                <depend id="41" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="41" uid="a894778f7b174aa894ec032bb1f9de1e" name="4.4. Ajustes de hardware y firmware" meeting="false" start="2025-10-05" duration="2" complete="0" expand="true">
+                <depend id="43" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="42" uid="5dc847d9bd9044fbad5ab0b1f8b56b5a" name="5. Pruebas de validación" meeting="false" start="2025-10-07" duration="8" complete="0" expand="true">
+            <depend id="46" type="2" difference="0" hardness="Strong"/>
+            <task id="43" uid="75824ecaa1db4676b8af35771cd0789e" name="5.1. Diseño de casos de prueba" meeting="false" start="2025-10-07" duration="2" complete="0" expand="true">
+                <depend id="44" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="44" uid="a5eeb14714c543629f6b0c44769488cf" name="5.2. Pruebas generales del sistema" meeting="false" start="2025-10-09" duration="4" complete="0" expand="true">
+                <depend id="45" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="45" uid="486b5d45a4414a24adc7d1744d14b784" name="5.3. Evaluación de desempeño" meeting="false" start="2025-10-13" duration="2" complete="0" expand="true">
+                <depend id="47" type="2" difference="0" hardness="Strong"/>
+                <depend id="48" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="46" uid="e29ff3df4c954e8c9c5af339df410288" name="6. Cierre del proyecto" meeting="false" start="2025-10-15" duration="58" complete="0" expand="true">
+            <task id="47" uid="b1d10fc5f0ab43bbad24e7d9fa854d2e" name="6.1. Desarrollo de informe de avances" meeting="false" start="2025-10-15" duration="2" complete="0" expand="true">
+                <depend id="49" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="48" uid="f703bd90c98f46979dc0f76aab580cc1" name="6.2. Escritura de la memoria técnica" meeting="false" start="2025-10-15" duration="56" complete="0" expand="true">
+                <depend id="49" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="49" uid="37a5c721905e4052a6aafeff804d621b" name="6.3. Elaboración de la presentación final" meeting="false" start="2025-12-10" duration="2" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Ing. Lucas Kirschner" function="Default:1" contacts="kirschnerlucas1@gmail.com" phone="+54 3755 272554">
+            <rate name="standard" value="100"/>
+        </resource>
+    </resources>
+    <allocations>
+        <allocation task-id="8" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="22" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="23" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="24" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="26" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="27" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="28" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="29" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="30" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="31" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="32" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="33" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="34" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="35" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="36" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="38" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="39" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="40" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="41" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="44" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="45" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="49" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

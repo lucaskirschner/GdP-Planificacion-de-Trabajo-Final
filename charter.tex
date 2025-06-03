@@ -16,10 +16,10 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Ing. Kirschner Lucas Sebastián}
+\autor{Ing. Lucas Sebastián Kirschner}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Mg. Ing. Fernández Guillermo Alfredo}
+\director{Mg. Ing. Guillermo Alfredo Fernández}
 \pertenenciaDirector{UNaM} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
@@ -62,6 +62,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1      & Se completa hasta el punto 5 inclusive                 & {12} de {mayo} de 2025			\\ \hline
 2      & Se completa hasta el punto 9 inclusive \newline Se corrigen errores de redacción y definición del Cliente de la revisión 1	& {19} de {mayo} de 2025			\\ \hline
 3      & Se completa hasta el punto 12 inclusive \newline Se corrigen errores de redacción y el desglose de tareas de la revisión 2	& {26} de {mayo} de 2025			\\ \hline
+4      & Se completa el plan \newline Se corrige diagrama de Gantt y notas del presupuesto de la revisión 3	& {2} de {junio} de 2025			\\ \hline
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
@@ -411,7 +412,7 @@ La figura \ref{fig:diagGantt} muestra el diagrama de Gantt del proyecto. En él,
 \begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=\textheight]{./Figuras/diagGantt.pdf}
+\includegraphics[height=\textheight]{./Figuras/diagGanttv4.0.pdf}
 \caption{Diagrama de Gantt.}
 \label{fig:diagGantt}
 \end{figure}
@@ -421,8 +422,6 @@ La figura \ref{fig:diagGantt} muestra el diagrama de Gantt del proyecto. En él,
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
-
-\renewcommand{\thefootnote}{\arabic{footnote}}
 
 \begin{table}[htpb]
 \centering
@@ -434,9 +433,9 @@ La figura \ref{fig:diagGantt} muestra el diagrama de Gantt del proyecto. En él,
 \rowcolor[HTML]{C0C0C0} 
 Descripción &
 	\multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-	\multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario\footnotemark[2]} &
+	\multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario\textsuperscript{2}} &
 	\multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-PCB prototipo estación central\footnotemark[1] &
+PCB prototipo estación central\textsuperscript{1} &
 	\multicolumn{1}{c|}{1} &
 	\multicolumn{1}{c|}{35.000} &
 	\multicolumn{1}{c|}{35.000} \\ \hline
@@ -452,7 +451,7 @@ Componentes estación remota &
 	\multicolumn{1}{c|}{2} &
 	\multicolumn{1}{c|}{80.000} &
 	\multicolumn{1}{c|}{160.000} \\ \hline
-Horas profesionales\footnotemark[3] &
+Horas profesionales\textsuperscript{3} &
 	\multicolumn{1}{c|}{650} &
 	\multicolumn{1}{c|}{15.000} &
 	\multicolumn{1}{c|}{9.750.000} \\ \hline
@@ -495,124 +494,181 @@ Licencia anual para software de diseño de PCBs &
 \end{tabularx}%
 \end{table}
 
-\footnotetext[1]{Los precios de componentes y servicios de prototipado fueron estimados a partir de cotizaciones vigentes de proveedores nacionales e internacionales.}
-
-\footnotetext[2]{Todos los precios están expresados en pesos argentinos (ARS) y fueron estimados en base a valores de mercado actualizados al 26/05/2025. Para los costos expresados originalmente en dólares, se utilizó un tipo de cambio oficial de 1 USD = 1.160 ARS, según el Banco Central de la República Argentina (BCRA).}
-
-\footnotetext[3]{El valor de la hora profesional se estimó en 15.000 ARS, considerando una tarifa base calculada a partir de un salario mensual bruto de ARS 1.800.000, incrementada en un 30\% por tratarse de trabajo técnico realizado fuera del horario laboral en relación de dependencia.}
-
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\textsuperscript{1} \footnotesize{Los precios de componentes y servicios de prototipado fueron estimados a partir de cotizaciones vigentes de proveedores nacionales e internacionales.} \\
+\textsuperscript{2} \footnotesize{Todos los precios están expresados en pesos argentinos (ARS) y fueron estimados en base a valores de mercado actualizados al 26/05/2025. Para los costos expresados originalmente en dólares, se utilizó un tipo de cambio oficial de 1 USD = 1.160 ARS, según el Banco Central de la República Argentina (BCRA).}\\
+\textsuperscript{3} \footnotesize {El valor de la hora profesional se estimó en 15.000 ARS, considerando una tarifa base calculada a partir de un salario mensual bruto de ARS 1.800.000, incrementada en un 30\% por tratarse de trabajo técnico realizado fuera del horario laboral en relación de dependencia.}
 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+a) Identificación de los riesgos y estimación de sus consecuencias:
+
+Riesgo 1: falta de disponibilidad de componentes electrónicos clave
 \begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
+	\item Severidad (S): 10.\\ La indisponibilidad de microcontroladores, módulos inalámbricos o PCBs imposibilita completamente el desarrollo del sistema, ya que son elementos fundamentales sin los cuales no se puede avanzar en ninguna etapa significativa del proyecto.
+	\item Ocurrencia (O): 2.\\ Aunque el contexto nacional presenta desafíos logísticos, actualmente existen canales relativamente estables para la importación de componentes a través de couriers, compras internacionales o proveedores especializados.
 \end{itemize}   
 
-Riesgo 2:
+Riesgo 2: escasa experiencia en comunicaciones inalámbricas
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 9.\\ Una elección inadecuada de la tecnología inalámbrica o un diseño mal dimensionado en cuanto a alcance, interferencias o robustez puede comprometer seriamente el funcionamiento del sistema, afectando la confiabilidad del monitoreo y control remoto.
+	\item Ocurrencia (O): 7.\\ Si bien se cuenta con conocimientos generales en sistemas embebidos, la experiencia específica en tecnologías inalámbricas industriales es limitada. Esto incrementa la probabilidad de subestimar restricciones técnicas o definir requerimientos poco realistas.
 \end{itemize}
 
-Riesgo 3:
+Riesgo 3: dedicación insuficiente del responsable del proyecto
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S):  7.\\	La falta de tiempo suficiente para abordar las actividades planificadas podría generar demoras importantes en el avance del proyecto, especialmente en tareas críticas como el diseño, implementación y validación de hardware y firmware. Esto afectaría tanto el cumplimiento del cronograma como la calidad de los entregables.
+	\item Ocurrencia (O): 5.\\	Si bien existe un compromiso asumido, la dedicación depende de múltiples factores personales y laborales que pueden variar a lo largo del tiempo. Esto introduce un nivel moderado de incertidumbre sobre la disponibilidad real de tiempo efectivo.
 \end{itemize}
 
+Riesgo 4: errores en el diseño de los prototipos
+\begin{itemize}
+	\item Severidad (S):  8.\\	Errores en el diseño de los prototipos de la estación central o las estaciones remotas pueden requerir una reimplementación parcial o total del hardware. Esto generaría retrasos considerables en el cronograma y aumentos en los costos, tanto por repetición de tareas como por nuevas compras de materiales.
+	\item Ocurrencia (O): 4.\\	El riesgo existe debido a la complejidad del sistema y la integración de múltiples tecnologías (comunicación inalámbrica, PoE, interfaces industriales, etc.). Sin embargo, la planificación contempla etapas de revisión y validación que disminuyen la probabilidad de fallos graves.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+Riesgo 5: dificultades en la implementación de protocolos de comunicación
+\begin{itemize}
+	\item Severidad (S):  9.\\	El proyecto depende del correcto funcionamiento de las comunicaciones TCP/IP, RS485 e inalámbricas. Problemas en la implementación de estos stacks podrían afectar gravemente la operatividad del sistema, comprometiendo la interoperabilidad entre módulos y el acceso remoto.
+	\item Ocurrencia (O): 6.\\	La falta de experiencia específica en estos protocolos incrementa la probabilidad de errores de diseño o implementación. Aunque se prevé una etapa de investigación, el proceso de integración podría presentar obstáculos técnicos complejos y consumir más tiempo del estimado.
+\end{itemize}
+
+Riesgo 6: incumplimiento de normativas técnicas o industriales
+\begin{itemize}
+	\item Severidad (S):  8.\\	El incumplimiento de normativas vinculadas a compatibilidad electromagnética, seguridad eléctrica, comunicaciones o alimentación podría impedir el uso del sistema en entornos industriales reales, forzando rediseños o limitando su aplicabilidad.
+	\item Ocurrencia (O): 2.\\	Si bien se trata de un riesgo crítico, es poco probable, ya que el proyecto contempla desde etapas tempranas la investigación y seguimiento de las normativas vigentes, lo que permitirá tomar decisiones de diseño que aseguren el cumplimiento desde el inicio.
+\end{itemize}
+
+Riesgo 7: insuficiencia de recursos económicos para adquirir materiales
+\begin{itemize}
+	\item Severidad (S):  9.\\	La falta de capital disponible para la compra de componentes, PCBs, herramientas de desarrollo o insumos de laboratorio puede interrumpir o demorar sustancialmente el proyecto, ya que muchas tareas dependen directamente de estos recursos.
+	\item Ocurrencia (O): 5.\\	Al tratarse de un emprendimiento autofinanciado, existe una probabilidad moderada de que, por cuestiones económicas personales o variaciones de precios, no se pueda contar con los fondos necesarios en el momento oportuno para avanzar con ciertas etapas.
+\end{itemize}
+
+\newpage
+b) Tabla de gestión de riesgos:
 
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Riesgo		& S  & O  & RPN & S* & O* & RPN* \\ \hline
+Riesgo 1	& 10 & 2  & 20  &    &    &      \\ \hline
+Riesgo 2	& 9  & 7  & 63  & 7  & 4  & 28   \\ \hline
+Riesgo 3	& 7  & 5  & 35  &    &    &      \\ \hline
+Riesgo 4	& 8  & 4  & 32  &    &    &      \\ \hline
+Riesgo 5	& 9  & 6  & 54  & 8  & 3  & 24   \\ \hline
+Riesgo 6	& 8  & 2  & 16  &    &    &      \\ \hline
+Riesgo 7	& 9  & 5  & 45  & 9  & 3  & 27   \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 40.
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
+Riesgo 2: escaza experiencia en comunicaciones inalámbricas
   \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
+  	\item Plan de mitigación: la etapa inicial del proyecto incluirá una fase específica de investigación para analizar distintas tecnologías inalámbricas, sus limitaciones y ventajas. Se priorizará el uso de módulos con documentación precisa, fiable y soporte activo de la comunidad, y se prevé recurrir a asistencia técnica especializada (foros, expertos, tutorías) para validar decisiones clave.
+	\item Severidad (S*): 7. \\ Aunque la elección errónea podría seguir afectando la confiabilidad del sistema, el impacto global se reduce al contar con un proceso de validación temprana de tecnologías y decisiones de diseño, lo cual permite detectar errores antes de avanzar a etapas más costosas.
+	\item Ocurrencia (O*): 4. \\ La probabilidad disminuye significativamente con una planificación consciente del riesgo. Las acciones preventivas, como la capacitación autodidacta inicial, el uso de prototipos funcionales y la consulta con terceros, reducen la posibilidad de incurrir en una mala elección o de cometer errores graves de implementación.
 	\end{itemize}
+	
+Riesgo 5: dificultades en la implementación de protocolos de comunicación
+\begin{itemize}
+	\item Plan de mitigación: se planificará una etapa temprana de desarrollo enfocada exclusivamente en la implementación y prueba de los protocolos de comunicación clave (TCP/IP, RS485 e inalámbricos), utilizando kits de desarrollo y ejemplos de referencia del fabricante. Además, se priorizará el uso de stacks probados y bien documentados, y se mantendrá una estrategia modular que permita aislar problemas y facilitar el diagnóstico. También se considerará el apoyo de comunidades técnicas y documentación oficial como recurso constante.
+	\item Severidad (S*): 8. \\ Aunque el funcionamiento de los protocolos sigue siendo fundamental, una implementación modular, validada por etapas y basada en stacks existentes reduce el impacto de posibles errores, ya que permite corregirlos sin comprometer el sistema completo.
+	\item Ocurrencia (O*): 3. \\ La ocurrencia baja al prever pruebas controladas, usar bibliotecas confiables y limitar la complejidad del código inicial. Esto permite una mejor comprensión progresiva del comportamiento de los protocolos antes de su integración definitiva.
+\end{itemize}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
+\newpage
+Riesgo 7: insuficiencia de recursos económicos para adquirir materiales
+\begin{itemize}
+	\item Plan de mitigación: el proyecto contará con un presupuesto detallado y priorizado desde su etapa de planificación. Se optará por una estrategia de compras progresiva según el avance real, limitando gastos iniciales. Además, se evaluarán opciones de reutilización de materiales, proveedores económicos y se reservará un fondo de contingencia para imprevistos. También se procurará seleccionar proveedores que dispongan de la mayoría de los componentes necesarios, a modo de reducir los costos de envío y los tiempos involucrados en la adquisición de insumos.
+	\item Severidad (S*): 9. \\ El impacto de no contar con fondos sigue siendo muy alto, ya que sin los insumos físicos el avance se vería seriamente afectado.
+	\item Ocurrencia (O*): 3. \\ La probabilidad se reduce considerablemente al contar con una planificación financiera anticipada, segmentar las compras y evaluar alternativas económicas. Estas medidas permiten adaptar el ritmo de avance a la disponibilidad real de fondos y disminuyen la posibilidad de interrupciones por falta de capital.
+\end{itemize}
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
-
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+	\item Req \#1: 1.3. La interfaz RS485 deberá cumplir con la norma TIA/EIA-485-A, soportando velocidades de hasta 115200 baudios en distancias de hasta 100 m.
+	\begin{itemize}
+		\item Verificación: análisis del diseño eléctrico mediante revisión de esquemáticos y consulta de hojas de datos del transceptor RS485, cumpliendo con las recomendaciones de circuitos típicos y \textit{layout}.
+		\item Validación: ensayos funcionales con cables de hasta 100 m, midiendo la tasa de error a 115200 baudios en condiciones típicas de operación.
+	\end{itemize}
+	
+	\item Req \#2: 1.4. Cada estación remota deberá contar con entradas digitales compatibles con sensores industriales de 24 V.
+	\begin{itemize}
+		\item Verificación: diseño basado en circuitos comúnmente utilizados y validados en aplicaciones industriales, incluyendo aislamiento galvánico, protección contra inversión de polaridad y picos de tensión. Revisión de esquemáticos y componentes seleccionados.
+		\item Validación: pruebas de campo con sensores industriales de 24 V, validando detección confiable de estados lógicos y activación de protecciones ante conexiones incorrectas.
+	\end{itemize}
+	
+	\item Req \#3: 1.5. Las salidas digitales deberán soportar cargas de al menos 30 V y 500 mA, con aislamiento galvánico.
+	\begin{itemize}
+		\item Verificación: revisión del diseño del circuito de salida, incluyendo aislamiento galvánico y análisis térmico básico. Consulta de hojas de datos y esquemáticos para validar márgenes operativos seguros.
+		\item Validación: ensayos funcionales con cargas reales, observando con instrumental la conmutación, la estabilidad térmica y la correcta actuación de las protecciones.
+	\end{itemize}
+	
+	\item Req \#4: 2.1. La comunicación entre la estación central y las estaciones remotas se realizará mediante un protocolo inalámbrico que asegure un alcance mínimo de 20 m en interiores.
+	\begin{itemize}
+		\item Verificación: revisión de la hoja de datos del módulo inalámbrico seleccionado, análisis del protocolo de comunicación implementado y validación teórica del alcance esperado según condiciones de instalación típicas.
+		\item Validación: pruebas funcionales midiendo el éxito de transmisión entre nodos ubicados a 20 m de distancia en diferentes ambientes.
+	\end{itemize}
+	
+	\item Req \#5: 2.3. La estación central deberá contar con interfaz Ethernet 10/100 Mbps para la conexión con sistemas SCADA o de supervisión.
+	\begin{itemize}
+		\item Verificación: análisis del diseño de hardware Ethernet, asegurando el cumplimiento de los circuitos típicos y las recomendaciones de \textit{layout} provistas por el fabricante del circuito integrado. Revisión de la configuración del \textit{stack} TCP/IP y validación de compatibilidad con el estándar IEEE 802.3.
+		\item Validación: conexión real a una red Ethernet con monitoreo del sistema desde una PC.
+	\end{itemize}
+	
+	\newpage
+	\item Req \#6: 3.1. El firmware deberá estar basado en arquitectura en capas, con separación entre drivers, middleware y lógica de aplicación.
+	\begin{itemize}
+		\item Verificación: análisis estructural del repositorio de código, asegurando la correcta organización modular según el modelo propuesto por Michael Barr, con capas bien definidas para abstracción de hardware, drivers, middleware y aplicación.
+		\item Validación: ejecución del firmware en prototipos verificando su correcto funcionamiento en distintas configuraciones de hardware y condiciones de uso.
+	\end{itemize}
+	
+	\item Req \#7: 3.2. La estación central deberá ejecutar un sistema operativo de tiempo real (RTOS) con soporte para tareas concurrentes.
+	\begin{itemize}
+		\item Verificación: revisión de la configuración del planificador, asignación de prioridades y correcto manejo de interrupciones en el código.
+		\item Validación: pruebas funcionales con múltiples tareas activas, evaluando la capacidad de respuesta en escenarios de carga real.
+	\end{itemize}
+	
+	\item Req \#8: 3.5. Se adoptarán buenas prácticas de programación modular y segura, inspiradas en lineamientos como MISRA-C.
+	\begin{itemize}
+		\item Verificación: revisión del código fuente mediante análisis estático y auditoría interna según reglas seleccionadas de MISRA-C.
+		\item Validación: ejecución de pruebas funcionales del sistema completo, evaluando estabilidad y ausencia de errores bajo condiciones normales de operación.
+	\end{itemize}
+	
+	\item Req \#9: 6.1. El diseño del hardware deberá cumplir con las normas de seguridad eléctrica aplicables a equipos de baja tensión (por ejemplo IEC 61010 o IRAM equivalente).
+	\begin{itemize}
+		\item Verificación: análisis de cumplimiento normativo mediante \textit{checklist} de distancias de aislamiento, protecciones y selección de componentes.
+		\item Validación: ensayos eléctricos simulando fallas típicas en condiciones controladas, evaluando el comportamiento seguro del sistema.
+	\end{itemize}
+	
+	\item Req \#10: 6.2. Las placas de circuito impreso deberán diseñarse siguiendo la normativa IPC correspondiente (por ejemplo IPC-2221, IPC-7351).
+	\begin{itemize}
+		\item Verificación: revisión del layout de PCB asegurando cumplimiento con reglas IPC y validación por parte del fabricante.
+		\item Validación: inspección visual y funcional de las placas prototipo tras su fabricación, verificando calidad de ensamblado y operación sin fallos.
+	\end{itemize}
 \end{itemize}
 
-\end{itemize}
-
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
-
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
-
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
+Establecer las pautas de trabajo para realizar una reunión final de evaluación del análisis del cumplimiento del plan será realizado por el responsable del proyecto, quien verificará uno a uno los requerimientos definidos inicialmente y comparará los tiempos planificados con los efectivamente registrados. Se identificarán las desviaciones más relevantes, junto con sus causas, con el fin de evaluar la calidad de la planificación original.
 
-\begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
-	  - Indicar esto y quién financiará los gastos correspondientes.
-\end{itemize}
+La identificación de técnicas y procedimientos útiles y no útiles también estará a cargo del responsable del proyecto. Se evaluarán las herramientas y metodologías aplicadas en el desarrollo de hardware y software, valorando su efectividad y pertinencia. Asimismo, se documentarán los principales problemas enfrentados y las soluciones implementadas. Toda esta información quedará consignada en la memoria técnica del proyecto.
 
-\end{consigna}
+Finalmente, el responsable organizará la instancia de cierre formal, que coincidirá con la presentación final del proyecto. En dicha instancia se agradecerá especialmente al director del trabajo, docentes del posgrado, colaboradores y demás personas que hayan contribuido al desarrollo del proyecto.
 
 \end{document}
